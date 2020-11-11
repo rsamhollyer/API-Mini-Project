@@ -1,0 +1,88 @@
+html {
+	box-sizing: border-box;
+}
+
+body * {
+	box-sizing: inherit;
+}
+
+main {
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	box-sizing: inherit;
+	background: grey;
+}
+
+div {
+	display: flex;
+	align-items: center;
+	margin: 5px;
+	padding: 25px;
+	background: #ffffff;
+}
+
+img {
+	max-width: 10%;
+	height: auto;
+}
+
+section {
+	display: grid;
+	grid-template-areas:
+		"title"
+		" desc"
+		"paired"
+		"pairing";
+	margin: 15px;
+	padding: 15px;
+}
+
+h2 {
+	grid-area: title;
+}
+
+h4 {
+	grid-area: paired;
+}
+
+span {
+	position: relative;
+	cursor: pointer;
+	opacity: 0.5;
+	background: red;
+	bottom: 50%;
+	border-radius: 50%;
+}
+
+span:hover {
+	opacity: 1;
+	transform: scale(2);
+}
+
+.description {
+	grid-area: desc;
+}
+
+.food-pairing {
+	grid-area: pairing;
+}
+
+@media (max-width: 1550px) {
+	main {
+		grid-template-columns: repeat(3, 33%);
+	}
+}
+@media (max-width: 1268px) {
+	main {
+		grid-template-columns: repeat(2, 50%);
+	}
+}
+
+@media (max-width: 825px) {
+	main {
+		grid-template-columns: 1fr;
+	}
+	img {
+		/* max-width: 50px; */
+	}
+}
