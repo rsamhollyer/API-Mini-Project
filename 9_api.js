@@ -1,13 +1,11 @@
 import { ajax } from "./ajax-module.js";
+let main = document.querySelector("main");
 
 ajax("https://api.punkapi.com/v2/beers ", (resultArray) => {
 	let body = document.querySelector("body");
-	let main = document.querySelector("main");
 	let h1El = document.createElement("h1");
-	let mainEl = document.createElement("main");
 	h1El.innerText = "BEERS";
 	h1El.classList.add("title");
-	body.prepend(mainEl);
 	body.prepend(h1El);
 	resultArray = JSON.parse(resultArray);
 	resultArray.forEach((beer) => {

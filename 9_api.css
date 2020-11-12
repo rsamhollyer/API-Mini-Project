@@ -36,14 +36,6 @@ div {
 	);
 	margin: 20px;
 	border: 1px solid black;
-	opacity: 0.5;
-}
-
-div:hover {
-	transform: translateY(50px) scale(1.2);
-	transition: all 0.5s linear;
-	opacity: 1;
-	z-index: 4;
 }
 
 img {
@@ -123,14 +115,5 @@ span:hover {
 	}
 	h1 {
 		font-size: 40px;
-	}
-
-	div {
-		opacity: 1;
-	}
-	div:hover {
-		opacity: 1;
-		transform: translateY(0) scale(1);
-		z-index: 1;
 	}
 }
