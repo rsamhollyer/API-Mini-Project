@@ -1,29 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Stalinist+One&family=Syne+Mono&display=swap");
+
 html {
 	box-sizing: border-box;
 }
 
-body * {
+body {
 	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	background: #adacb5;
 }
 
 main {
 	display: grid;
 	grid-template-columns: repeat(4, 25%);
 	box-sizing: inherit;
-	background: grey;
+	width: 100%;
+	overflow: hidden;
 }
 
 div {
 	display: flex;
-	align-items: center;
+	align-items: start;
 	margin: 5px;
 	padding: 25px;
 	background: #ffffff;
+	background-image: linear-gradient(
+		to bottom,
+		#34344a,
+		#80475e,
+		#cc5a71,
+		#c89b7b,
+		#f0f757
+	);
+	margin: 20px;
+	border: 1px solid black;
+	opacity: 0.5;
+}
+
+div:hover {
+	transform: translateY(50px) scale(1.2);
+	transition: all 0.5s linear;
+	opacity: 1;
+	z-index: 4;
 }
 
 img {
-	max-width: 10%;
+	max-width: 15%;
 	height: auto;
+	align-self: center;
 }
 
 section {
@@ -35,14 +61,25 @@ section {
 		"pairing";
 	margin: 15px;
 	padding: 15px;
+	min-height: 0;
+}
+
+h1 {
+	text-align: center;
+	font-family: "Stalinist One", cursive;
+	font-size: 75px;
 }
 
 h2 {
 	grid-area: title;
+	font-family: "Stalinist One", cursive;
+	border-bottom: 0.5px solid black;
 }
 
 h4 {
 	grid-area: paired;
+	font-family: "Stalinist One", cursive;
+	border-bottom: 0.5px solid black;
 }
 
 span {
@@ -50,7 +87,7 @@ span {
 	cursor: pointer;
 	opacity: 0.5;
 	background: red;
-	bottom: 50%;
+	scale: 1.5;
 	border-radius: 50%;
 }
 
@@ -61,10 +98,12 @@ span:hover {
 
 .description {
 	grid-area: desc;
+	font-family: "Syne Mono", monospace;
 }
 
 .food-pairing {
 	grid-area: pairing;
+	font-family: "Syne Mono", monospace;
 }
 
 @media (max-width: 1550px) {
@@ -78,11 +117,20 @@ span:hover {
 	}
 }
 
-@media (max-width: 825px) {
+@media (max-width: 800px) {
 	main {
 		grid-template-columns: 1fr;
 	}
-	img {
-		/* max-width: 50px; */
+	h1 {
+		font-size: 40px;
+	}
+
+	div {
+		opacity: 1;
+	}
+	div:hover {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		z-index: 1;
 	}
 }

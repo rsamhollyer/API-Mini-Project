@@ -1,8 +1,14 @@
 import { ajax } from "./ajax-module.js";
 
-let main = document.querySelector("main");
-
 ajax("https://api.punkapi.com/v2/beers ", (resultArray) => {
+	let body = document.querySelector("body");
+	let main = document.querySelector("main");
+	let h1El = document.createElement("h1");
+	let mainEl = document.createElement("main");
+	h1El.innerText = "BEERS";
+	h1El.classList.add("title");
+	body.prepend(mainEl);
+	body.prepend(h1El);
 	resultArray = JSON.parse(resultArray);
 	resultArray.forEach((beer) => {
 		let outerDivEl = document.createElement("div");
@@ -13,7 +19,7 @@ ajax("https://api.punkapi.com/v2/beers ", (resultArray) => {
 		let paraEl = document.createElement("p");
 		let foodsParaEl = document.createElement("p");
 		let spanEl = document.createElement("span");
-		spanEl.classList.add("fas", "fa-times-circle");
+
 		main.append(outerDivEl);
 		outerDivEl.append(imgEl, sectionEl, spanEl);
 		sectionEl.append(titleEl, paraEl, foodPairEl, foodsParaEl);
@@ -22,13 +28,14 @@ ajax("https://api.punkapi.com/v2/beers ", (resultArray) => {
 		paraEl.append(beer.description);
 		foodPairEl.innerText = "Pairs Well With:";
 		foodsParaEl.append(beer.food_pairing);
+
 		paraEl.classList.add("description");
 		foodsParaEl.classList.add("food-pairing");
+		spanEl.classList.add("fas", "fa-times-circle");
 	});
 });
 const handleCloseClick = (e) => {
 	if (e.target.tagName !== "SPAN") return;
-	console.log(e.target.parentNode);
 	e.target.parentNode.remove();
 };
 
